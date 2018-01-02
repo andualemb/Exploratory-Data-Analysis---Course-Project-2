@@ -75,6 +75,8 @@ Plot the aggrigated values
       barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'  Emission (Tons)'),main=expression('Total PM'[2.5]*' Emissions by Year'))
       dev.off()
 
+![alt text](http://url/to/img.png)
+
 
 ## Answer 1 
 #### The ploted data show that total PM2.5 emmission has declined from 1999 to 2008
