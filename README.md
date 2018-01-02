@@ -258,4 +258,4 @@ Aggrigate the Los Angeles data for ON-ROAD type in NEI
         ggtitle('Comparrision of Total Emissions From Motor Vehicle in Baltimore City, MD and Los Angeles, CA by Year')
       print(g)
       dev.off()
-##Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
+#Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
