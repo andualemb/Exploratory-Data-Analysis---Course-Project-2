@@ -75,11 +75,11 @@ Plot the aggrigated values
       barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'  Emission (Tons)'),main=expression('Total PM'[2.5]*' Emissions by Year'))
       dev.off()
 
-![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot1.png)
+      ![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot1.png)
 
 
 ## Answer 1 
-#### The ploted data show that total PM2.5 emmission has declined from 1999 to 2008
+#### The plotted data show that total PM2.5 emmission has declined from 1999 to 2008
 
 ## Question 2
 2. Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot answering this question.
@@ -103,8 +103,12 @@ aggrigate Baltimore's total by year
       png('plot2.png')
       barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'    Emission (Tons)'),main=expression('Total PM'[2.5]*' Emmission in Baltimore City, MD by Year'))
      dev.off()
+     
+     ![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot2.png)   
+     
 ## Answer 2
-#### Emmission in Baltimore is trending downwards but there was an increase in 2005. 
+ 
+#### Plotted data show that emmission in Baltimore is trending downwards but there was an increase in 2005. 
 
 
 
@@ -142,8 +146,10 @@ Aggrigate Baltimore's total by year and type
       print(g)
       dev.off()
       
+       ![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot3.png)   
+      
 ## Answer 3
-#### Point emmission has trended higher from 1999 to 2005 and declined in 2008
+#### Plotted data show that point emmission has trended higher from 1999 to 2005 and declined in 2008
 
 
 
@@ -185,9 +191,11 @@ Subset the oal combustion-related sources data
         ggtitle('Total Emissions From Coal Sources From 1999 to 2008')
       print(g)
       dev.off()
+      
+       ![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot4.png)   
 
 ## Answer 4
-#### Coal emmission has decreased through the years
+#### Plotted data show that Coal emmission has decreased through the years
 
 
 
@@ -225,9 +233,11 @@ Aggrigate Baltimore's total by year and type
         ggtitle('Total Emissions From Motor Vehiclein Baltimore City, Maryland from 1999 to 2008')
       print(g)
       dev.off()
+      
+       ![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot5.png)   
 
 ## Answer 5
-#### PM2.5 Emmision from motor vehicles in Baltimore is decressing. 
+#### PM2.5 Plotted data show emmision from motor vehicles in Baltimore is decressing. 
 
 
 
@@ -274,6 +284,8 @@ Aggrigate the Los Angeles data for ON-ROAD type in NEI
         ggtitle('Comparrision of Total Emissions From Motor Vehicle in Baltimore City, MD and Los Angeles, CA by Year')
       print(g)
       dev.off()
+      
+       ![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot6.png)   
 
 ## Answer 6
-#### Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
+#### Plotted data show that Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
