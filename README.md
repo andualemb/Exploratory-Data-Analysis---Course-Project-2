@@ -62,17 +62,17 @@ You must address the following questions and tasks in your exploratory analysis.
 read NEI and SCC data
 
 
-NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
-SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
+      NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
+      SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
 
 Aggrigate total by year
 
-TotalByYear <- aggregate(Emissions ~ year, NEI, FUN=sum)
+      TotalByYear <- aggregate(Emissions ~ year, NEI, FUN=sum)
 
 Plot the aggrigated values
 
-png('plot1.png')
-barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*' Emission (Tons)'),main=expression('Total PM'[2.5]*' Emissions by Year'))
-dev.off()
+      png('plot1.png')
+      barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'  Emission (Tons)'),main=expression('Total PM'[2.5]*' Emissions by Year'))
+      dev.off()
 
 
