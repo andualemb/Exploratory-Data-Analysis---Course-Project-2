@@ -29,13 +29,13 @@ TotalByYearAndType <- aggregate(Emissions ~ year + type, BaltimoreCityNEI, sum)
 
 
 png("plot3.png", width=640, height=480)
-ggp <- ggplot(BaltimoreCityNEI,aes(factor(year),Emissions,fill=type)) +
+g <- ggplot(BaltimoreCityNEI,aes(factor(year),Emissions,fill=type)) +
   geom_bar(stat="identity") +
   facet_grid(.~type,scales = "free",space="free") + 
   labs(x="Year", y=expression("Total PM"[2.5]*" Emission (Tons)")) + 
   labs(title=expression("Total PM"[2.5]*" Emissions in Baltimore City 1999-2008 by Source Type"))
 
-print(ggp)
+print(g)
 dev.off()
 
-# Point emmission has trended higher from 1999 to 2008
+# Point emmission has trended higher from 1999 to 2005 and declined in 2008
