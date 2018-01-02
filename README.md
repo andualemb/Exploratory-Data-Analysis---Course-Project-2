@@ -83,7 +83,7 @@ Plot the aggrigated values
 2. Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot answering this question.
 
 
-# Answwer 2
+
 Read NEI and SCC data
 
 
@@ -101,7 +101,7 @@ aggrigate Baltimore's total by year
       png('plot2.png')
       barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'    Emission (Tons)'),main=expression('Total PM'[2.5]*' Emmission in Baltimore City, MD by Year'))
      dev.off()
-
+# Answwer 2
 #Emmission in Baltimore is trending downwards but there was an increase in 2005. 
 
 
@@ -109,7 +109,7 @@ aggrigate Baltimore's total by year
 
 3. Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City? Which have seen increases in emissions from 1999–2008? Use the ggplot2 plotting system to make a plot answer this question.
 
-# Answwer 3
+
 
 Read NEI and SCC data
 
@@ -137,6 +137,8 @@ Aggrigate Baltimore's total by year and type
 
       print(g)
       dev.off()
+      
+# Answwer 3
 Point emmission has trended higher from 1999 to 2005 and declined in 2008
 
 # Question 4
@@ -176,13 +178,14 @@ Subset the oal combustion-related sources data
       print(g)
       dev.off()
 
-#Coal emmission has decreased through the years
+# Answwer 4
+Coal emmission has decreased through the years
 
 
 # Question 5
 5. How have emissions from motor vehicle sources changed from 1999–2008 in Baltimore City?
 
-# Answwer 5
+
 
 Read NEI and SCC data
 
@@ -213,7 +216,8 @@ Aggrigate Baltimore's total by year and type
       print(g)
       dev.off()
 
-#PM2.5 Emmision from motor vehicles in Baltimore is decressing. 
+# Answwer 5
+# PM2.5 Emmision from motor vehicles in Baltimore is decressing. 
 
 
 
@@ -221,7 +225,7 @@ Aggrigate Baltimore's total by year and type
 6. Compare emissions from motor vehicle sources in Baltimore City with emissions from motor vehicle sources in Los Angeles County, California (fips == "06037"). Which city has seen greater changes over time in motor vehicle emissions?
 
 
-# Answwer 6
+
 
 Read NEI and SCC data
 
@@ -258,4 +262,6 @@ Aggrigate the Los Angeles data for ON-ROAD type in NEI
         ggtitle('Comparrision of Total Emissions From Motor Vehicle in Baltimore City, MD and Los Angeles, CA by Year')
       print(g)
       dev.off()
-#Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
+
+# Answwer 6
+# Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
