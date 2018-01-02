@@ -75,7 +75,7 @@ Plot the aggrigated values
       barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'  Emission (Tons)'),main=expression('Total PM'[2.5]*' Emissions by Year'))
       dev.off()
 
-![alt text](http://https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot1.png)
+![alt text](https://github.com/andualemb/Exploratory-Data-Analysis---Course-Project-2/blob/master/plot1.png)
 
 
 ## Answer 1 
