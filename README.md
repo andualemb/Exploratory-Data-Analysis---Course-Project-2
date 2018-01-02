@@ -264,4 +264,4 @@ Aggrigate the Los Angeles data for ON-ROAD type in NEI
       dev.off()
 
 # Answwer 6
-# Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
+## Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
