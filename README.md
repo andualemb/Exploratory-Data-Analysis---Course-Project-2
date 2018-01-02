@@ -77,7 +77,7 @@ Plot the aggrigated values
 
 
 # Answwer 1 
-#The ploted data show that total PM2.5 emmission has declined from 1999 to 2008
+### The ploted data show that total PM2.5 emmission has declined from 1999 to 2008
 
 # Question 2
 2. Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot answering this question.
@@ -102,7 +102,7 @@ aggrigate Baltimore's total by year
       barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'    Emission (Tons)'),main=expression('Total PM'[2.5]*' Emmission in Baltimore City, MD by Year'))
      dev.off()
 # Answwer 2
-#Emmission in Baltimore is trending downwards but there was an increase in 2005. 
+## Emmission in Baltimore is trending downwards but there was an increase in 2005. 
 
 
 # Question 3
@@ -139,7 +139,7 @@ Aggrigate Baltimore's total by year and type
       dev.off()
       
 # Answwer 3
-Point emmission has trended higher from 1999 to 2005 and declined in 2008
+## Point emmission has trended higher from 1999 to 2005 and declined in 2008
 
 # Question 4
 
@@ -179,7 +179,7 @@ Subset the oal combustion-related sources data
       dev.off()
 
 # Answwer 4
-Coal emmission has decreased through the years
+## Coal emmission has decreased through the years
 
 
 # Question 5
@@ -217,7 +217,7 @@ Aggrigate Baltimore's total by year and type
       dev.off()
 
 # Answwer 5
-# PM2.5 Emmision from motor vehicles in Baltimore is decressing. 
+## PM2.5 Emmision from motor vehicles in Baltimore is decressing. 
 
 
 
@@ -264,4 +264,4 @@ Aggrigate the Los Angeles data for ON-ROAD type in NEI
       dev.off()
 
 # Answwer 6
-## Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
+### Los Angeles has seen the biggest drop in emmissions in absloute terms but the total emmission in Baltimore is lower that LA 
