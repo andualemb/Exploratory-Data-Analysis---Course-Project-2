@@ -40,7 +40,7 @@ NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
 as long as each of those files is in your current working directory (check by calling dir() and see if those files are in the listing).
-Assignment
+# Assignment
 
 The overall goal of this assignment is to explore the National Emissions Inventory database and see what it say about fine particulate matter pollution in the United states over the 10-year period 1999–2008. You may use any R package you want to support your analysis.
 Making and Submitting Plots
@@ -52,9 +52,27 @@ For each plot you should
     Upload the PNG file on the Assignment submission page
     Copy and paste the R code from the corresponding R file into the text box at the appropriate point in the peer assessment.
     
-    Questions
+  # Questions
 
 You must address the following questions and tasks in your exploratory analysis. For each question/task you will need to make a single plot. Unless specified, you can use any plotting system in R to make your plot.
-Question 1
+# Question 1
 
-First we'll aggregate the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
+1. Have total emissions from PM2.5 decreased in the United States from 1999 to 2008? Using the base plotting system, make a plot showing the total PM2.5 emission from all sources for each of the years 1999, 2002, 2005, and 2008.
+
+read NEI and SCC data
+
+
+NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
+SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
+
+Aggrigate total by year
+
+TotalByYear <- aggregate(Emissions ~ year, NEI, FUN=sum)
+
+Plot the aggrigated values
+
+png('plot1.png')
+barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*' Emission (Tons)'),main=expression('Total PM'[2.5]*' Emissions by Year'))
+dev.off()
+
+
