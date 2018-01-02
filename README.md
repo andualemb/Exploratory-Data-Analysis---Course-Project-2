@@ -102,7 +102,7 @@ aggrigate Baltimore's total by year
       barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'    Emission (Tons)'),main=expression('Total PM'[2.5]*' Emmission in Baltimore City, MD by Year'))
      dev.off()
 # Answwer 2
-## Emmission in Baltimore is trending downwards but there was an increase in 2005. 
+#### Emmission in Baltimore is trending downwards but there was an increase in 2005. 
 
 
 # Question 3
