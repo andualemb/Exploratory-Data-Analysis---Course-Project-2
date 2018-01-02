@@ -76,3 +76,186 @@ Plot the aggrigated values
       dev.off()
 
 
+# Answwer 1 
+The ploted data show that total PM2.5 emmission has declined from 1999 to 2008
+
+# Question 2
+2. Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == "24510") from 1999 to 2008? Use the base plotting system to make a plot answering this question.
+
+
+# Answwer 2
+Read NEI and SCC data
+
+
+      NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
+      SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
+
+subset the Baltimore data
+
+      BaltimoreCityNEI  <- NEI[NEI$fips=="24510", ]
+
+aggrigate Baltimore's total by year
+
+      TotalByYear <- aggregate(Emissions ~ year, BaltimoreCityNEI, sum)
+
+      png('plot2.png')
+      barplot(height=TotalByYear$Emissions, names.arg=TotalByYear$year, xlab="Year",col="red", ylab=expression('Total PM'[2.5]*'    Emission (Tons)'),main=expression('Total PM'[2.5]*' Emmission in Baltimore City, MD by Year'))
+     dev.off()
+
+Emmission in Baltimore is trending downwards but there was an increase in 2005. 
+
+
+# Question 3
+
+3. Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City? Which have seen increases in emissions from 1999–2008? Use the ggplot2 plotting system to make a plot answer this question.
+
+# Answwer 3
+
+Read NEI and SCC data
+
+
+      NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
+      SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
+
+     library(ggplot2)
+
+subset the Baltimore data
+
+      BaltimoreCityNEI  <- NEI[NEI$fips=="24510", ]
+
+Aggrigate Baltimore's total by year and type
+
+      TotalByYearAndType <- aggregate(Emissions ~ year + type, BaltimoreCityNEI, sum)
+
+
+      png("plot3.png", width=640, height=480)
+      g <- ggplot(BaltimoreCityNEI,aes(factor(year),Emissions,fill=type)) +
+        geom_bar(stat="identity") +
+        facet_grid(.~type,scales = "free",space="free") + 
+        labs(x="Year", y=expression("Total PM"[2.5]*" Emission (Tons)")) + 
+        labs(title=expression("Total PM"[2.5]*" Emissions in Baltimore City 1999-2008 by Source Type"))
+
+      print(g)
+      dev.off()
+Point emmission has trended higher from 1999 to 2005 and declined in 2008
+
+# Question 4
+
+4. Across the United States, how have emissions from coal combustion-related sources changed from 1999–2008?
+
+# Answwer 4
+
+Read NEI and SCC data
+
+
+      NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
+      SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
+
+Merge the NEI data and SCC data sets 
+
+       NEISCC <- merge(NEI, SCC, by="SCC")
+
+      library(ggplot2)
+
+Subset the oal combustion-related sources data 
+
+      coalMatches  <- grepl("coal", NEISCC$Short.Name, ignore.case=TRUE)
+      CoalNEISCC <- NEISCC[coalMatches, ]
+
+      TotalByYear <- aggregate(Emissions ~ year, CoalNEISCC, sum)
+
+
+
+      png("plot4.png", width=640, height=480)
+      g <- ggplot(TotalByYear, aes(factor(year), Emissions))
+      g <- g + geom_bar(stat="identity", fill = "red") +
+        xlab("year") +
+  
+        ylab(expression('Total PM'[2.5]*' Emissions (Tons)')) +
+        ggtitle('Total Emissions From Coal Sources From 1999 to 2008')
+      print(g)
+      dev.off()
+
+Coal emmission has decreased through the years
+
+
+# Question 5
+5. How have emissions from motor vehicle sources changed from 1999–2008 in Baltimore City?
+
+# Answwer 5
+
+Read NEI and SCC data
+
+
+      NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
+      SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
+
+
+
+      library(ggplot2)
+
+Subset the Baltimore data and ON-ROAD type in NEI
+
+      BaltimoreCityNEI <- NEI[NEI$fips=="24510" & NEI$type=="ON-ROAD",  ]
+
+Aggrigate Baltimore's total by year and type
+
+      TotalByYear <- aggregate(Emissions ~ year, BaltimoreCityNEI, sum)
+
+
+
+      png("plot5.png", width=840, height=480)
+      g <- ggplot(TotalByYear, aes(factor(year), Emissions))
+      g <- g + geom_bar(stat="identity", fill = "red") +
+        xlab("Year") +
+        ylab(expression('Total PM'[2.5]*' Emissions (Tons)')) +
+        ggtitle('Total Emissions From Motor Vehiclein Baltimore City, Maryland from 1999 to 2008')
+      print(g)
+      dev.off()
+
+PM2.5 Emmision from motor vehicles in Baltimore is decressing. 
+
+
+
+# Question 6
+6. Compare emissions from motor vehicle sources in Baltimore City with emissions from motor vehicle sources in Los Angeles County, California (fips == "06037"). Which city has seen greater changes over time in motor vehicle emissions?
+
+
+# Answwer 6
+
+Read NEI and SCC data
+
+
+      NEI <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/summarySCC_PM25.rds")
+      SCC <- readRDS("C:/Users/abekele/Documents/Corsera/Exploratory Data Analysis/EPA Files/Source_Classification_Code.rds")
+
+
+      library(ggplot2)
+
+Subset the Baltimore and Los Angeles data for ON-ROAD type in NEI
+
+      subsetNEI <- NEI[(NEI$fips=="24510"|NEI$fips=="06037") & NEI$type=="ON-ROAD",  ]
+
+
+
+Aggrigate the Baltimore and Los Angeles data for ON-ROAD type in NEI
+
+      TotalByYearAndFips <- aggregate(Emissions ~ year + fips, subsetNEI, sum)
+
+Aggrigate the Baltimore data for ON-ROAD type in NEI
+      
+      TotalByYearAndFips$fips[TotalByYearAndFips$fips=="24510"] <- "Baltimore, MD"
+
+Aggrigate the Los Angeles data for ON-ROAD type in NEI
+      TotalByYearAndFips$fips[TotalByYearAndFips$fips=="06037"] <- "Los Angeles, CA"
+
+      png("plot6.png", width=1040, height=480)
+      g <- ggplot(TotalByYearAndFips, aes(factor(year), Emissions, fill=fips))
+      g <- g + facet_grid(. ~ fips)
+      g <- g + geom_bar(stat="identity")  +
+        xlab("year") +
+        ylab(expression('Total PM'[2.5]*' Emissions (Tons)')) +
+        ggtitle('Comparrision of Total Emissions From Motor Vehicle in Baltimore City, MD and Los Angeles, CA by Year')
+      print(g)
+      dev.off()
+
